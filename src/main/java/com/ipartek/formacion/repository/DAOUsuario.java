@@ -10,6 +10,11 @@ public interface DAOUsuario {
 
 	void setDatasource(DataSource ds);
 
+	/**
+	 * Documentar esto
+	 * 
+	 * @return
+	 */
 	List<Usuario> getAll();
 
 	Usuario getById(long id);
