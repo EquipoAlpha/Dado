@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+
+#dado{
+	border:1px solid red;
+	float:left;
+	width: 45%;
+
+	margin-left: 3%;
+}
+#ranking{
+	border:1px solid blue;
+	float:left;
+	width: 45%;
+
+	margin-left: 4%;
+}
