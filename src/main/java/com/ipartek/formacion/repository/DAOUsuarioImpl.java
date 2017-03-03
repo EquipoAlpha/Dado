@@ -40,8 +40,8 @@ public class DAOUsuarioImpl implements DAOUsuario {
 	}
 
 	/* Sentencias SQL */
-	private static final String SQL_GET_ALL = "SELECT `id`, `nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja` FROM `usuario` ORDER BY `id` DESC LIMIT 1000;";
-	private static final String SQL_GET_BY_ID = "SELECT `id`, `nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja` FROM `usuario` WHERE `id` = ?";
+	private static final String SQL_GET_ALL = "SELECT `idusuario`, `nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja` FROM `usuario` WHERE fecha_baja IS NULL ORDER BY `idusuario` DESC LIMIT 1000;";
+	private static final String SQL_GET_BY_ID = "SELECT `idusuario`, `nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja` FROM `usuario` WHERE `idusuario` = ?";
 	private static final String SQL_INSERT = "INSERT INTO `usuario` (`nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja`) VALUES (?, ?, ?, ?);";
 	private static final String SQL_UPDATE = "UPDATE `usuario` SET `nombre`= ? ,`fecha_alta`=? ,`fecha_modificacion`=? ,`fecha_baja`= ? WHERE `id`= ? ;";
 	private static final String SQL_DELETE = "DELETE FROM `usuario` WHERE `id` = ?;";
@@ -49,7 +49,6 @@ public class DAOUsuarioImpl implements DAOUsuario {
 	@Override
 	public List<Usuario> getAll() {
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
-
 		try {
 
 			lista = (ArrayList<Usuario>) this.jdbcTemplate.query(SQL_GET_ALL, new UsuarioMapper());

@@ -4,9 +4,9 @@
 	<!-- Intro Section -->
 	<section id="intro" class="intro-section">
 		<div class="container">
-			
+
 			<div class="row">
-				
+
 				<div>
 					<h3>Estadisticas</h3>
 					<table id="example" class="display" width="100%" cellspacing="0">
@@ -20,19 +20,19 @@
 						<tbody>
 							<c:forEach items="${usuarios}" var="u">
 								<c:forEach items="${u.listaTiradas}" var="t">
-								<tr>
-									<td>${u.id}</td>
-									<td>${u.nombre}</td>
-									<td>${t.fecha_tirada}</td>
-								</tr>
+									<tr>
+										<td>${u.id}</td>
+										<td>${u.nombre}</td>
+										<td>${t.fecha_tirada}</td>
+									</tr>
 								</c:forEach>
 							</c:forEach>
-
-
 						</tbody>
 					</table>
 				</div>
 			</div>
+
+			
 		</div>
 	</section>
 

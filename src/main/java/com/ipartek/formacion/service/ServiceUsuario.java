@@ -6,7 +6,7 @@ import com.ipartek.formacion.domain.Usuario;
 
 public interface ServiceUsuario {
 
-	List<Usuario> ObtenerTodos(); /*
+	List<Usuario> obtenerTodos(); /*
 									 * No obtener las de fecha de baja distinto
 									 * de null
 									 */

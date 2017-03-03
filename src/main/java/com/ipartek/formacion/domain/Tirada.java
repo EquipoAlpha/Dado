@@ -3,6 +3,7 @@ package com.ipartek.formacion.domain;
 import java.util.Date;
 
 public class Tirada {
+	
 	private long id_tirada;
 	private Date fecha_tirada;
 

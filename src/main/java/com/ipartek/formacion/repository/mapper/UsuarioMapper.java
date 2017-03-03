@@ -12,8 +12,7 @@ public class UsuarioMapper implements RowMapper<Usuario> {
 	@Override
 	public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Usuario u = new Usuario();
-
-		u.setId(rs.getLong("id"));
+		u.setId(rs.getLong("idusuario"));
 		u.setNombre(rs.getString("nombre"));
 		u.setFecha_alta(rs.getDate("fecha_alta"));
 		u.setFecha_modificacion(rs.getDate("fecha_modificacion"));
