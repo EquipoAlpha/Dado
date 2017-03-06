@@ -14,10 +14,14 @@ public class UsuarioMapper implements RowMapper<Usuario> {
 		Usuario u = new Usuario();
 		u.setId(rs.getLong("idusuario"));
 		u.setNombre(rs.getString("nombre"));
-		u.setFecha_alta(rs.getDate("fecha_alta"));
-		u.setFecha_modificacion(rs.getDate("fecha_modificacion"));
-		u.setFecha_baja(rs.getDate("fecha_baja"));
-
+		u.setFechaAlta(rs.getDate("fecha_alta"));
+		u.setFechaModificacion(rs.getDate("fecha_modificacion"));
+		u.setFechaBaja(rs.getDate("fecha_baja"));
+		try{
+			u.setNumTiradas(rs.getInt("tirada"));
+		}catch(Exception e){
+			u.setNumTiradas(-1);
+		}
 		return u;
 	}
 

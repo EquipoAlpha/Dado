@@ -9,75 +9,101 @@ public class Usuario {
 
 	private String nombre;
 
-	private Date fecha_alta;
+	private Date fechaAlta;
 
-	private Date fecha_modificacion;
+	private Date fechaModificacion;
 
-	private Date fecha_baja;
+	private Date fechaBaja;
 
+	private int numTiradas;
+	
 	private ArrayList<Tirada> listaTiradas;
 
 	public Usuario() {
 		super();
 		this.id = -1;
 		this.nombre = "";
-		this.fecha_alta = new Date();
-		this.fecha_baja = null;
-		this.fecha_modificacion = new Date();
+		this.fechaAlta = new Date();
+		this.fechaBaja = null;
+		this.fechaModificacion = new Date();
+		this.numTiradas=-1;
 	}
 
-	public long getId() {
-		return id;
+
+	public int getNumTiradas() {
+		return numTiradas;
 	}
+
+
+	public void setNumTiradas(int numTiradas) {
+		this.numTiradas = numTiradas;
+	}
+
+
+	public long getId() {
+		return this.id;
+	}
+
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
+
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public Date getFecha_alta() {
-		return fecha_alta;
+
+	public Date getFechaAlta() {
+		return this.fechaAlta;
 	}
 
-	public void setFecha_alta(Date fecha_alta) {
-		this.fecha_alta = fecha_alta;
+
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
 	}
 
-	public Date getFecha_modificacion() {
-		return fecha_modificacion;
+
+	public Date getFechaModificacion() {
+		return this.fechaModificacion;
 	}
 
-	public void setFecha_modificacion(Date fecha_modificacion) {
-		this.fecha_modificacion = fecha_modificacion;
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
 	}
 
-	public Date getFecha_baja() {
-		return fecha_baja;
+
+	public Date getFechaBaja() {
+		return this.fechaBaja;
 	}
 
-	public void setFecha_baja(Date fecha_baja) {
-		this.fecha_baja = fecha_baja;
+
+	public void setFechaBaja(Date fechaBaja) {
+		this.fechaBaja = fechaBaja;
 	}
+
 
 	public ArrayList<Tirada> getListaTiradas() {
-		return listaTiradas;
+		return this.listaTiradas;
 	}
+
 
 	public void setListaTiradas(ArrayList<Tirada> listaTiradas) {
 		this.listaTiradas = listaTiradas;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", fecha_alta=" + fecha_alta + ", fecha_modificacion="
-				+ fecha_modificacion + ", fecha_baja=" + fecha_baja + ", listaTiradas=" + listaTiradas + "]";
+		return "Usuario [id=" + this.id + ", nombre=" + this.nombre + ", fecha_alta=" + this.fechaAlta + ", fecha_modificacion="
+				+ this.fechaModificacion + ", fecha_baja=" + this.fechaBaja + ", listaTiradas=" + this.listaTiradas + "]";
 	}
 
 }

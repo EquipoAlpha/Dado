@@ -22,7 +22,8 @@
 												"url" : "//cdn.datatables.net/plug-ins/1.10.13/i18n/Spanish.json"
 											},
 										"bFilter": false,
-									    "bLengthChange": false
+									    "bLengthChange": false,
+									    "order": [[ 2, "desc" ]]
 										});
 					});
 </script>

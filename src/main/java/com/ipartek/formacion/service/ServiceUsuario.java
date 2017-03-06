@@ -1,5 +1,6 @@
 package com.ipartek.formacion.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.ipartek.formacion.domain.Usuario;
@@ -19,5 +20,11 @@ public interface ServiceUsuario {
 
 	boolean eliminar(
 			long id); /* Este metodo pone fecha de baja de null a actual */
+
+	List<Usuario> obtenerTodosBaja();
+
+	boolean darAlta(long l);
+
+	ArrayList<Usuario> obtenerRanking();
 
 }

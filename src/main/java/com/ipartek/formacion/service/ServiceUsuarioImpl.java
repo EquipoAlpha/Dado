@@ -3,8 +3,7 @@ package com.ipartek.formacion.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +12,9 @@ import com.ipartek.formacion.domain.Usuario;
 import com.ipartek.formacion.repository.DAOTirada;
 import com.ipartek.formacion.repository.DAOUsuario;
 
-@Service("serviceUsuario")
+@Service(value="serviceUsuario")
 public class ServiceUsuarioImpl implements ServiceUsuario {
 
-	private final Log logger = LogFactory.getLog(getClass());
 
 	@Autowired
 	private DAOUsuario daoUsuario;
@@ -27,36 +25,58 @@ public class ServiceUsuarioImpl implements ServiceUsuario {
 
 	@Override
 	public List<Usuario> obtenerTodos() {
-		// TODO Auto-generated method stub
-		ArrayList<Usuario> listaUsuarios=(ArrayList<Usuario>)daoUsuario.getAll();
+
+		ArrayList<Usuario> listaUsuarios=(ArrayList<Usuario>)this.daoUsuario.getAll();
 		for(Usuario u : listaUsuarios){
-			u.setListaTiradas((ArrayList<Tirada>)daoTirada.getAllById(u.getId()));
+			u.setListaTiradas((ArrayList<Tirada>)this.daoTirada.getAllById(u.getId()));
 		}
 		return listaUsuarios;
 	}
 
 	@Override
 	public Usuario buscarPorId(long id) {
-		// TODO Auto-generated method stub
-		return daoUsuario.getById(id);
+
+		return this.daoUsuario.getById(id);
 	}
 
 	@Override
 	public boolean crear(Usuario u) {
-		// TODO Auto-generated method stub
-		return false;
+
+		return this.daoUsuario.insert(u);
 	}
 
 	@Override
 	public boolean modificar(Usuario u) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.daoUsuario.update(u);
 	}
 
 	@Override
 	public boolean eliminar(long id) {
+
+		return this.daoUsuario.delete(id);
+	}
+
+	@Override
+	public List<Usuario> obtenerTodosBaja() {
 		// TODO Auto-generated method stub
-		return false;
+		ArrayList<Usuario> listaUsuarios=(ArrayList<Usuario>)this.daoUsuario.getAllDeleted();
+		for(Usuario u : listaUsuarios){
+			u.setListaTiradas((ArrayList<Tirada>)this.daoTirada.getAllById(u.getId()));
+		}
+		return listaUsuarios;
+	}
+
+
+	@Override
+	public boolean darAlta(long idUsuario) {
+		// TODO Auto-generated method stub
+		return this.daoUsuario.activate(idUsuario);
+	}
+
+	@Override
+	public ArrayList<Usuario> obtenerRanking() {
+		// TODO Auto-generated method stub
+		return this.daoUsuario.getRanking();
 	}
 
 }

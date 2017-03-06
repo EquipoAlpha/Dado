@@ -1,5 +1,6 @@
 package com.ipartek.formacion.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -13,7 +14,7 @@ public interface DAOUsuario {
 	/**
 	 * Documentar esto
 	 * 
-	 * @return
+	 * @return List<Usuario>
 	 */
 	List<Usuario> getAll();
 
@@ -24,5 +25,11 @@ public interface DAOUsuario {
 	boolean update(Usuario u);
 
 	boolean delete(long id);
+
+	List<Usuario> getAllDeleted();
+
+	boolean activate(long idUsuario);
+
+	ArrayList<Usuario> getRanking();
 
 }

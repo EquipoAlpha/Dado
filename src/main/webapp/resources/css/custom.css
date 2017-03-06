@@ -1,16 +1,35 @@
 @CHARSET "ISO-8859-1";
 
 #dado{
-	border:1px solid red;
+	margin-top:8%;
 	float:left;
 	width: 45%;
-
 	margin-left: 3%;
+	background-color: #F2F2F2;
+    border-radius: 25px;
+    padding-bottom: 20px;
 }
 #ranking{
-	border:1px solid blue;
+	margin-top:4%;
 	float:left;
 	width: 45%;
-
 	margin-left: 4%;
+
+}
+
+.colorAzul{
+	background-color: #151515;
+}
+
+.posDiv{
+	margin-top:3%;
+	float:right;
+	background-color:#F2F2F2;
+	    border-radius: 25px;
+	margin-right: 10%;
+	padding: 15px;
+}
+
+.left{
+	float: left;
 }

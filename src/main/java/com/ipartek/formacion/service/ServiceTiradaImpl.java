@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ipartek.formacion.repository.DAOTirada;
 
 
-@Service("serviceTirada")
+@Service(value="serviceTirada")
 public class ServiceTiradaImpl implements ServiceTirada {
 
 
@@ -19,9 +19,8 @@ public class ServiceTiradaImpl implements ServiceTirada {
 
 
 	@Override
-	public boolean añadirTirada(int id_usuario) {
-		// TODO Auto-generated method stub
-		return daoTirada.addTirada(id_usuario);
+	public boolean aniadirTirada(int idUsuario) {
+		return this.daoTirada.addTirada(idUsuario);
 	}
 	
 
