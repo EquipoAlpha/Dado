@@ -16,7 +16,7 @@ Proyecto Web 2.5 desallorado con Java6 y Spring 3.
 ## Instalacion:
 
 	-Importar script de la carpeta "deploy/install.sql
-	-Desplegar "deploy/dado.war" en Tomcat
+	-Desplegar "deploy/dado-equipo5.war" en Tomcat
 	-Acceder mediante el navegador a la url: "http://localhost.8080/dado"
 
 	*Si se desea cambiar las credenciales de la base de datos, modificar el fichero: 	"src\main\resources\database.properties" y volver a generar el WAR
