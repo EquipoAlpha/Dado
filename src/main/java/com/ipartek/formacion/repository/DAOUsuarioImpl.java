@@ -49,7 +49,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 	private static final String SQL_GET_ALL = "SELECT `idusuario`, `nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja` FROM `usuario` WHERE fecha_baja IS NULL ORDER BY `idusuario` DESC LIMIT 1000;";
 	private static final String SQL_GET_ALL_DELETED = "SELECT `idusuario`, `nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja` FROM `usuario` WHERE fecha_baja IS NOT NULL ORDER BY `idusuario` DESC LIMIT 1000;";
 
-	private static final String SQL_GET_RANKING="SELECT COUNT(tirada.usuario_idusuario) As tirada, usuario.idusuario, usuario.nombre,usuario.fecha_alta,usuario.fecha_modificacion,usuario.fecha_baja FROM dado.tirada INNER JOIN dado.usuario ON "
+	private static final String SQL_GET_RANKING="SELECT COUNT(tirada.usuario_idusuario) As tirada, usuario.idusuario, usuario.nombre,usuario.fecha_alta,usuario.fecha_modificacion,usuario.fecha_baja FROM dado_equipo5.tirada INNER JOIN dado_equipo5.usuario ON "
 			+ "usuario.idusuario=tirada.usuario_idusuario WHERE usuario.fecha_baja IS NULL group by usuario_idusuario ORDER BY `tirada` DESC LIMIT 1000;";
 	private static final String SQL_GET_BY_ID = "SELECT `idusuario`, `nombre`, `fecha_alta`, `fecha_modificacion`,`fecha_baja` FROM `usuario` WHERE `idusuario` = ?";
 	private static final String SQL_INSERT = "INSERT INTO `usuario` (`nombre`) VALUES (?);";

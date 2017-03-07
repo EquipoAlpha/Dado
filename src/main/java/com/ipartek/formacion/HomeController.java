@@ -51,7 +51,6 @@ public class HomeController {
 		{
 			model.addAttribute("afortunado", "-1");
 		}else{
-			
 			int numeroAleatorio = this.getNumeroAleatorio(listaUsuario.size());
 			Usuario u = this.serviceUsuario.buscarPorId(listaUsuario.get(numeroAleatorio).getId());
 			this.serviceTirada.aniadirTirada((int) u.getId());
