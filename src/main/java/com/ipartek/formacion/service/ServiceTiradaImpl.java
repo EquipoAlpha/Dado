@@ -7,18 +7,22 @@ import org.springframework.stereotype.Service;
 
 import com.ipartek.formacion.repository.DAOTirada;
 
-
+/**
+ * 
+ * @author Curso
+ *
+ */
 @Service(value="serviceTirada")
 public class ServiceTiradaImpl implements ServiceTirada {
 
 
 
 	
-	@Autowired
+	@Autowired()
 	private DAOTirada daoTirada;
 
 
-	@Override
+	@Override()
 	public boolean aniadirTirada(int idUsuario) {
 		return this.daoTirada.addTirada(idUsuario);
 	}

@@ -33,3 +33,16 @@
 .left{
 	float: left;
 }
+
+.posForm{
+	margin-top: 11%;
+	width: 40%;
+	float: left;
+}
+
+div#imagenGetPost {
+	margin-top: 11%;
+	width: 40%;
+	height: 40%;
+	float: right;
+}

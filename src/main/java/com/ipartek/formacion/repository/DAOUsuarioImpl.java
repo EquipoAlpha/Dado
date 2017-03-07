@@ -25,16 +25,21 @@ import org.springframework.stereotype.Repository;
 import com.ipartek.formacion.domain.Usuario;
 import com.ipartek.formacion.repository.mapper.UsuarioMapper;
 
+/**
+ * 
+ * @author Curso
+ *
+ */
 @Repository(value = "daoUsuario")
 public class DAOUsuarioImpl implements DAOUsuario {
 
 	private final Log logger = LogFactory.getLog(getClass());
-	@Autowired
+	@Autowired()
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 
-	@Autowired
-	@Override
+	@Autowired()
+	@Override()
 	public void setDatasource(DataSource ds) {
 		this.dataSource = ds;
 		this.jdbcTemplate = new JdbcTemplate(this.dataSource);
@@ -53,7 +58,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 	private static final String SQL_REACTIVATE = "UPDATE `usuario` SET `fecha_baja`=?  WHERE `idusuario`= ?;";
 
-	@Override
+	@Override()
 	public List<Usuario> getAll() {
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		try {
@@ -73,7 +78,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		return lista;
 	}
 
-	@Override
+	@Override()
 	public Usuario getById(long id) {
 		Usuario u = new Usuario();
 
@@ -94,7 +99,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		return u;
 	}
 
-	@Override
+	@Override()
 	public boolean insert(final Usuario u) {
 		this.logger.trace("insert " + u);
 		boolean resul = false;
@@ -105,7 +110,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 			affectedeRows = this.jdbcTemplate.update(new PreparedStatementCreator() {
 
-				@Override
+				@Override()
 				public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 					PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 					ps.setString(1, u.getNombre());
@@ -126,13 +131,13 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		return resul;
 	}
 
-	@Override
+	@Override()
 	public boolean update(Usuario u) {
 		this.logger.trace("update " + u);
 		boolean resul = false;
 		int affectedRows = -1;
 		try {
-			Object[] argumentos = { u.getNombre(), new Timestamp(System.currentTimeMillis()), u.getId()};
+			Object[] argumentos = {u.getNombre(), new Timestamp(System.currentTimeMillis()), u.getId()};
 			affectedRows = this.jdbcTemplate.update(SQL_UPDATE, argumentos);
 			if (affectedRows == 1) {
 				resul = true;
@@ -144,7 +149,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		return resul;
 	}
 
-	@Override
+	@Override()
 	public boolean delete(long id) {
 		boolean resul = false;
 		int affectedRows = -1;
@@ -161,7 +166,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		return resul;
 	}
 
-	@Override
+	@Override()
 	public List<Usuario> getAllDeleted() {
 		// TODO Auto-generated method stub
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
@@ -182,7 +187,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		return lista;
 	}
 
-	@Override
+	@Override()
 	public boolean activate(long idUsuario) {
 		// TODO Auto-generated method stub
 		boolean resul = false;
@@ -200,7 +205,7 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		return resul;
 	}
 
-	@Override
+	@Override()
 	public ArrayList<Usuario> getRanking() {
 		// TODO Auto-generated method stub
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();

@@ -12,18 +12,23 @@ import com.ipartek.formacion.domain.Usuario;
 import com.ipartek.formacion.repository.DAOTirada;
 import com.ipartek.formacion.repository.DAOUsuario;
 
+/**
+ * 
+ * @author Curso
+ *
+ */
 @Service(value="serviceUsuario")
 public class ServiceUsuarioImpl implements ServiceUsuario {
 
 
-	@Autowired
+	@Autowired()
 	private DAOUsuario daoUsuario;
 	
-	@Autowired
+	@Autowired()
 	private DAOTirada daoTirada;
 	
 
-	@Override
+	@Override()
 	public List<Usuario> obtenerTodos() {
 
 		ArrayList<Usuario> listaUsuarios=(ArrayList<Usuario>)this.daoUsuario.getAll();
@@ -33,30 +38,30 @@ public class ServiceUsuarioImpl implements ServiceUsuario {
 		return listaUsuarios;
 	}
 
-	@Override
+	@Override()
 	public Usuario buscarPorId(long id) {
 
 		return this.daoUsuario.getById(id);
 	}
 
-	@Override
+	@Override()
 	public boolean crear(Usuario u) {
 
 		return this.daoUsuario.insert(u);
 	}
 
-	@Override
+	@Override()
 	public boolean modificar(Usuario u) {
 		return this.daoUsuario.update(u);
 	}
 
-	@Override
+	@Override()
 	public boolean eliminar(long id) {
 
 		return this.daoUsuario.delete(id);
 	}
 
-	@Override
+	@Override()
 	public List<Usuario> obtenerTodosBaja() {
 		// TODO Auto-generated method stub
 		ArrayList<Usuario> listaUsuarios=(ArrayList<Usuario>)this.daoUsuario.getAllDeleted();
@@ -67,13 +72,13 @@ public class ServiceUsuarioImpl implements ServiceUsuario {
 	}
 
 
-	@Override
+	@Override()
 	public boolean darAlta(long idUsuario) {
 		// TODO Auto-generated method stub
 		return this.daoUsuario.activate(idUsuario);
 	}
 
-	@Override
+	@Override()
 	public ArrayList<Usuario> obtenerRanking() {
 		// TODO Auto-generated method stub
 		return this.daoUsuario.getRanking();

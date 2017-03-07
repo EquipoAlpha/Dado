@@ -20,7 +20,7 @@
 						<c:forEach items="${usuarios}" var="u">
 							<tr>
 								<td>${u.id}</td>
-								<td>${u.nombre}</td>
+								<td><a href="admin/${u.id}">${u.nombre}</a></td>
 								<td>${u.fechaBaja}</td>
 								<td><a href="admin/dar-alta/${u.id}"><i
 										class="fa fa-check-square"

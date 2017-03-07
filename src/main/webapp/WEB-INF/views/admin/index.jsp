@@ -28,7 +28,7 @@
 							<c:forEach items="${usuarios}" var="u">
 								<tr>
 									<td>${u.id}</td>
-									<td>${u.nombre}</td>
+									<td><a href="admin/${u.id}">${u.nombre}</a></td>
 									<td><a href="admin/modificar/${u.id}"><i
 											class="fa fa-pencil-square" aria-hidden="true"></i> </a></td>
 									<td><a href="admin/eliminar/${u.id}"><i

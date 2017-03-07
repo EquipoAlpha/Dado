@@ -13,38 +13,62 @@ import com.ipartek.formacion.domain.Usuario;
 import com.ipartek.formacion.service.ServiceTirada;
 import com.ipartek.formacion.service.ServiceUsuario;
 
-@Controller
+/**
+ * 
+ * @author Curso
+ *
+ */
+@Controller()
 public class HomeController {
 
-	@Autowired
+	@Autowired()
 	private ServiceUsuario serviceUsuario;
-	@Autowired
+	@Autowired()
 	private ServiceTirada serviceTirada;
 
-
+	/**
+	 * 
+	 * @param locale aa
+	 * @param model modelo de la vista
+	 * @return vista
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		ArrayList<Usuario> listaUsuario = (ArrayList<Usuario>) this.serviceUsuario.obtenerRanking();
 		model.addAttribute("usuarios", listaUsuario);
 		return "home";
 	}
-
+	/**
+	 * 
+	 * @param locale aa
+	 * @param model modelo de la vista
+	 * @return vista
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String homePOST(Locale locale, Model model) {
-		ArrayList<Usuario> listaUsuario = (ArrayList<Usuario>) this.serviceUsuario.obtenerRanking();
-		
-		int numeroAleatorio = this.getNumeroAleatorio(listaUsuario.size());
-		Usuario u = this.serviceUsuario.buscarPorId(listaUsuario.get(numeroAleatorio).getId());
-		
-		this.serviceTirada.aniadirTirada((int) u.getId());
-		listaUsuario = (ArrayList<Usuario>) this.serviceUsuario.obtenerRanking();
+		ArrayList<Usuario> listaUsuario=(ArrayList<Usuario>) this.serviceUsuario.obtenerTodos();
+		if(listaUsuario.isEmpty())
+		{
+			model.addAttribute("afortunado", "-1");
+		}else{
+			
+			int numeroAleatorio = this.getNumeroAleatorio(listaUsuario.size());
+			Usuario u = this.serviceUsuario.buscarPorId(listaUsuario.get(numeroAleatorio).getId());
+			this.serviceTirada.aniadirTirada((int) u.getId());
+			listaUsuario = (ArrayList<Usuario>) this.serviceUsuario.obtenerRanking();
+			model.addAttribute("afortunado", u.getNombre());
+		}
 		model.addAttribute("usuarios", listaUsuario);
 
-		model.addAttribute("afortunado", u.getNombre());
 
 		return "home";
 	}
 
+	/**
+	 * 
+	 * @param maximoValor valor maximo a recibir
+	 * @return numero aleatorio
+	 */
 	private int getNumeroAleatorio(int maximoValor) {
 		return (int) (Math.random() * maximoValor);
 	}

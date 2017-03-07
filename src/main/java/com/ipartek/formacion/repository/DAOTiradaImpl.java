@@ -22,17 +22,21 @@ import org.springframework.stereotype.Repository;
 import com.ipartek.formacion.domain.Tirada;
 import com.ipartek.formacion.repository.mapper.TiradaMapper;
 
-
+/**
+ * 
+ * @author Curso
+ *
+ */
 @Repository(value="daoTirada")
 public class DAOTiradaImpl implements DAOTirada {
 
 	private final Log logger = LogFactory.getLog(getClass());
-	@Autowired
+	@Autowired()
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplate;
 
-	@Autowired
-	@Override
+	@Autowired()
+	@Override()
 	public void setDatasource(DataSource ds) {
 		this.dataSource = ds;
 		this.jdbcTemplate = new JdbcTemplate(this.dataSource);
@@ -42,7 +46,7 @@ public class DAOTiradaImpl implements DAOTirada {
 	private static final String SQL_GET_ALL = "SELECT `id_tirada`, `fecha` FROM `tirada` WHERE `usuario_idusuario`=? ORDER BY `id_tirada` DESC LIMIT 1000;";
 	private static final String SQL_INSERT = "INSERT INTO `tirada` (`usuario_idusuario`) VALUES (?);";
 
-	@Override
+	@Override()
 	public List<Tirada> getAllById(long id_usuario) {
 		ArrayList<Tirada> lista = new ArrayList<Tirada>();
 		try {
@@ -63,7 +67,7 @@ public class DAOTiradaImpl implements DAOTirada {
 		return lista;
 	}
 
-	@Override
+	@Override()
 	public boolean addTirada(final int id_usuario) {
 		boolean resul = false;
 		try {
@@ -71,7 +75,7 @@ public class DAOTiradaImpl implements DAOTirada {
 			KeyHolder keyHolder = new GeneratedKeyHolder();
 
 			affectedeRows = this.jdbcTemplate.update(new PreparedStatementCreator() {
-				@Override
+				@Override()
 				public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 					PreparedStatement ps = conn.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
 					ps.setLong(1, id_usuario);

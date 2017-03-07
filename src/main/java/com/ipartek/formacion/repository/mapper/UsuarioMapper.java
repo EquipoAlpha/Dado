@@ -7,9 +7,14 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.ipartek.formacion.domain.Usuario;
 
+/**
+ * 
+ * @author Curso
+ *
+ */
 public class UsuarioMapper implements RowMapper<Usuario> {
 
-	@Override
+	@Override()
 	public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Usuario u = new Usuario();
 		u.setId(rs.getLong("idusuario"));

@@ -11,10 +11,18 @@
 						<img width="200px" height="200px" title="dado" alt="dado"
 							src="http://2.bp.blogspot.com/-sQLWdIP4vQg/VMzkAv5qefI/AAAAAAAAAZA/Jowfw5tZkz4/s1600/Dado%2B(GIF).gif" />
 						<c:if test="${afortunado!=null }">
+							<c:if test="${!afortunado.equals('-1')}">
 							<p>
 								<strong>El afortunado es:</strong> ${afortunado}
 							</p>
+							</c:if>
+							<c:if test="${afortunado.equals('-1')}">
+							<p style="color:red;">
+								<strong>No puede lanzar,añadir usuarios primero.</strong>
+							</p>
 						</c:if>
+						</c:if>
+						
 						<form method="post">
 							<button type="submit" class="btn btn-primary">Lanzar</button>
 						</form>
