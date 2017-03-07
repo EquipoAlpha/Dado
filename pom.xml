@@ -5,7 +5,7 @@
 	<groupId>com.ipartek</groupId>
 	<artifactId>formacion</artifactId>
 	<packaging>war</packaging>
-	<name>Dado</name>
+	<name>DadoEq5</name>
 	<version>1.0</version>
 	<properties>
 		<app.name>dado-equipo5</app.name>
