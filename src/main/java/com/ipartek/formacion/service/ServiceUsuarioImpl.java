@@ -84,4 +84,10 @@ public class ServiceUsuarioImpl implements ServiceUsuario {
 		return this.daoUsuario.getRanking();
 	}
 
+	@Override
+	public boolean eliminarBBDD(long idUsuario) {
+		// TODO Auto-generated method stub
+		return this.daoUsuario.deleteFromBBDD(idUsuario);
+	}
+
 }

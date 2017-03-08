@@ -172,5 +172,19 @@ public class AdminController {
 		}
 		return "admin/index";
 	}
+	
+	/**
+	 * 
+	 * @param model modelo de la vista a mostrar	
+	 * @param idUsuario id del usuario que se desea dar de baja
+	 * @return vista
+	 */
+	@RequestMapping(value="/delete/{idUsuario}" ,method = RequestMethod.GET)
+	public String eliminarPermanente(Model model, @PathVariable() String idUsuario) {
+		if(this.serviceUsuario.eliminarBBDD(Long.parseLong(idUsuario))){
+			model.addAttribute("usuarios", this.serviceUsuario.obtenerTodos());
+		}
+		return "admin/index";
+	}
 
 }

@@ -58,6 +58,8 @@ public class DAOUsuarioImpl implements DAOUsuario {
 
 	private static final String SQL_REACTIVATE = "UPDATE `usuario` SET `fecha_baja`=?  WHERE `idusuario`= ?;";
 
+	private static final String SQL_DELETE_BY_ID_USUARIO = "DELETE FROM `usuario` WHERE `idusuario`= ?;";
+
 	@Override()
 	public List<Usuario> getAll() {
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
@@ -224,6 +226,24 @@ public class DAOUsuarioImpl implements DAOUsuario {
 		}
 
 		return lista;
+	}
+
+	@Override
+	public boolean deleteFromBBDD(long idUsuario) {
+		// TODO Auto-generated method stub
+		boolean resul = false;
+		try {
+			int affectedRows = this.jdbcTemplate.update(SQL_DELETE_BY_ID_USUARIO, idUsuario);
+			if (affectedRows == 1) {
+				resul = true;
+			}
+		} catch (EmptyResultDataAccessException e) {
+			this.logger.warn("No existen ingredientes todavia");
+		} catch (Exception e) {
+			this.logger.error(e.getMessage());
+		}
+
+		return resul;
 	}
 
 }

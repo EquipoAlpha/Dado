@@ -69,4 +69,11 @@ public interface ServiceUsuario {
 	 */
 	ArrayList<Usuario> obtenerRanking();
 
+	/**
+	 * 
+	 * @param idUsuario id usuario
+	 * @return eliminado o no
+	 */
+	boolean eliminarBBDD(long idUsuario);
+
 }

@@ -73,4 +73,11 @@ public interface DAOUsuario {
 	 */
 	ArrayList<Usuario> getRanking();
 
+	/**
+	 * 
+	 * @param idUsuario id del usuaerio
+	 * @return si o no
+	 */
+	boolean deleteFromBBDD(long idUsuario);
+
 }

@@ -7,8 +7,7 @@
 			<!-- Heading Row -->
 			<c:if test="${usuariosBaja.size()!=0}">
 				
-					<a  href="admin/dar-alta" class="btn btn-info left" role="button">Alta
-						usuario</a><br/><br/>
+					<a  href="admin/dar-alta" class="btn btn-info left" role="button">Ver usuarios dados de baja</a><br/><br/>
 
 			</c:if>
 			<div class="row">
@@ -21,6 +20,7 @@
 								<th>Nombre</th>
 								<th>Modificar</th>
 								<th>Dar de baja</th>
+								<th>Eliminar</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -34,6 +34,10 @@
 									<td><a href="admin/eliminar/${u.id}"><i
 											class="fa fa-trash"
 											onclick="return confirm('¿Seguro que quiere dar de baja este usuario?')"
+											aria-hidden="true"></i></a></td>
+									<td><a href="admin/delete/${u.id}"><i
+											class="fa fa-times-circle"
+											onclick="return confirm('¿Seguro que quiere eliminar este usuario?(Se hara un borrado permanente)')"
 											aria-hidden="true"></i></a></td>
 
 								</tr>
@@ -64,7 +68,7 @@
 								</c:if>
 								<div class="col-xs-12">
 									<form:label path="nombre">Nombre</form:label>
-									<form:input path="nombre" class="form-control" />
+									<form:input path="nombre" class="form-control" autofocus="autofocus" />
 								</div>
 								<br />
 								<br>
