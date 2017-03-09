@@ -47,17 +47,14 @@ public class TiradaTest {
 		tirada = new Tirada(ID, FECHATIRADA);
 		assertEquals(ID, tirada.getIdTirada());
 		assertEquals(FECHATIRADA, tirada.getFechaTirada());
-		
 }
 	@Test
 	public void testSetterGetter() {
 
 		tirada.setIdTirada(ID);
 		assertEquals(ID, tirada.getIdTirada());
-
 		tirada.setFechaTirada(FECHATIRADA);
-		
-
 }
+	
 	
 }
